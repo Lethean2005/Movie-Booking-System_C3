@@ -1,4 +1,4 @@
-export class Chinema{
+export class Wallet{
     constructor(){
         
     }
