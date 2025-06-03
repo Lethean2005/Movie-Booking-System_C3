@@ -1,4 +1,4 @@
-import { Genre } from "./Genre";
+import { Genre } from "../enums/Genre";
 import { ShowTime } from "./Showtime";
 export class Movie {
     private showtimes: ShowTime[] = [];

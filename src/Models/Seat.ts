@@ -1,4 +1,4 @@
-import { SeatStatus, SeatType } from "./SeatStatus";
+import { SeatStatus, SeatType } from "../enums/SeatStatus";
 
 export interface Seat {
   id: string;

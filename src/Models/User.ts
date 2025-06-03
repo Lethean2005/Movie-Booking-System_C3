@@ -1,7 +1,8 @@
 import { Booking } from './Booking';
-import { Showtime } from './Showtime';
+
 import { BookingStatus } from '../enums/BookingStatus';
-import { Wallet } from './Wallet';
+
+
 
 const users: User[] = []; 
 
@@ -11,7 +12,7 @@ export class User {
     public fullName: string,
     public email: string,
     public password: string,
-    public wallet: Wallet,
+    public wallet: number,
   ) {}
 
   register(): void {
