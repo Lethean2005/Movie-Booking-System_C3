@@ -6,10 +6,11 @@ export class DigitalTicket extends Ticket {
     constructor(
         ticketID: string,
         seat: Seat[],
+        hallname: string,
         private qrCode: string,
         private bookingref: string
     ) {
-        super(ticketID, seat);
+        super(ticketID, seat, hallname);
     }
 
     public verifyTicket(): boolean {
@@ -17,7 +18,10 @@ export class DigitalTicket extends Ticket {
         return this.qrCode.length > 0 && this.bookingref.length > 0;
     }
 
-    public getSeat(): Seat[] {
-        return this.seat; 
+    public getQRCode(): string {
+        return this.qrCode;
+    }
+    public getBookingRef(): string {
+        return this.bookingref;
     }
 }
