@@ -7,14 +7,14 @@ const users: User[] = [];
 
 export class User {
   constructor(
-    public userID: string,
-    public fullName: string,
-    public email: string,
-    public password: string,
-    public wallet: Wallet,
+    private userID: string,
+    private fullName: string,
+    private email: string,
+    private password: string,
+    private wallet: Wallet,
   ) {}
 
-  register(): void {
+  public register(): void {
     const existingUser = users.find(user => user.email === this.email);
     if (existingUser) {
       console.log('Registration failed: Email already exists.');
@@ -24,7 +24,7 @@ export class User {
     console.log(`${this.fullName} has registered successfully.`);
   }
 
-  login(): void {
+  public login(): void {
     const user = users.find(
       u => u.email === this.email && u.password === this.password
     );
@@ -35,15 +35,18 @@ export class User {
     }
   }
 
-  viewBookingHistory(): Booking[] {
+  public viewBookingHistory(): Booking[] {
     
     console.log(`${this.fullName}'s booking history:`);
     return [];
   }
 
-  leaveReview(): void {
+  public leaveReview(): void {
    
     console.log(`${this.fullName} is leaving a review.`);
     
+  }
+  public getUserName(): string {
+    return this.fullName;
   }
 }

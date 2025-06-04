@@ -1,5 +1,11 @@
 export class CinemaStaff {
-    constructor(){
+    constructor(
+        private staffID: string,
+        private name: string,
+    ){
+        
+    }
+    public Payamount(amount: number): void {
         
     }
 }
