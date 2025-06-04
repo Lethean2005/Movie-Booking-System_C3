@@ -8,11 +8,29 @@ export class Seat {
         private seatID: string,
         private row: number,
         private column: string,
-        private Hall:Hall,
+        private hall: Hall,
         private seatZone: SeatZone,
         private seatStatus: SeatStatus
     ){
 
+    }
+    public getSeatID(): string {
+        return this.seatID;
+    }
+    public getZone(): SeatZone {
+        return this.seatZone;
+    }
+    public getStatus(): SeatStatus {
+        return this.seatStatus;
+    }
+    public setStatus(status: SeatStatus): void {
+        this.seatStatus = status;
+    }
+    public isAvailable(): boolean {
+        return this.seatStatus === SeatStatus.AVAILABLE;
+    }
+    public getHall(): Hall {
+        return this.hall;
     }
     public getAvailableSeats(): Seat[] {
         

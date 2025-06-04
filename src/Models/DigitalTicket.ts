@@ -5,12 +5,12 @@ import { Ticket } from "./Ticket";
 export class DigitalTicket extends Ticket {
     constructor(
         ticketID: string,
-        seat: Seat[],
+        seats: Seat[],
         hallname: string,
         private qrCode: string,
         private bookingref: string
     ) {
-        super(ticketID, seat, hallname);
+        super(ticketID, seats, hallname);
     }
 
     public verifyTicket(): boolean {
@@ -23,5 +23,8 @@ export class DigitalTicket extends Ticket {
     }
     public getBookingRef(): string {
         return this.bookingref;
+    }
+    public getSeats(): Seat[] {
+        return (this as any).seats;
     }
 }

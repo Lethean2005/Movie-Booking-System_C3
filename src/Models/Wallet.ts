@@ -1,17 +1,17 @@
 export class Wallet{
     constructor(
-
         private balance: number,
-       
     ){
         
     }
-    public pay(amount: number): void {
+    public pay(amount: number): boolean {
         if (amount <= this.balance) {
             this.balance -= amount;
             console.log(`Payment of ${amount} successful. Remaining balance: ${this.balance}`);
+            return true;
         } else {
             console.log('Payment failed: Insufficient balance.');
+            return false;
         }
     }
     public topUp(amount: number): void {
@@ -21,5 +21,8 @@ export class Wallet{
         } else {
             console.log('Top-up failed: Amount must be positive.');
         }
+    }
+    public getBalance(): number {
+        return this.balance;
     }
 }
