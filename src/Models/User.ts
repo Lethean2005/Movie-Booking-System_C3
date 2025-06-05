@@ -18,6 +18,9 @@ export class User {
     private wallet: Wallet,
   ) {}
 
+// -----------------------------
+// 1. User Registration/Login
+// -----------------------------  
   public register(): void {
     const existingUser = users.find(user => user.email === this.email);
     if (existingUser) {
@@ -41,15 +44,24 @@ export class User {
     }
   }
 
+// -----------------------------
+// 2. View Booking History
+// -----------------------------
   public viewBookingHistory(): Booking[] {
     console.log(`${this.fullName}'s booking history:`);
     return this.bookings;
   }
 
+// -----------------------------
+// Add Booking
+// -----------------------------
   public addBooking(booking: Booking): void {
     this.bookings.push(booking);
   }
 
+// -----------------------------
+// Leave Review
+// -----------------------------
   public leaveReview(movie: Movie, rating: number, comment: string): void {
     const review = new Review(`R${Date.now()}`, rating, comment, this, movie);
     this.reviews.push(review);

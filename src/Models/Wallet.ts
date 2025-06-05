@@ -14,6 +14,9 @@ export class Wallet{
             return false;
         }
     }
+// ----------------
+// Top Up Wallet
+// ----------------
     public topUp(amount: number): void {
         if (amount > 0) {
             this.balance += amount;
@@ -22,6 +25,9 @@ export class Wallet{
             console.log('Top-up failed: Amount must be positive.');
         }
     }
+// ----------------
+// Get Balance
+// ----------------
     public getBalance(): number {
         return this.balance;
     }

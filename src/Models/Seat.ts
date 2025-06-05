@@ -14,6 +14,10 @@ export class Seat {
     ){
 
     }
+
+// -----------------------------
+// Getters and Setters
+// -----------------------------
     public getSeatID(): string {
         return this.seatID;
     }

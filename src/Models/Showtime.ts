@@ -12,6 +12,9 @@ export class Showtime{
     ){
         
     }
+// -----------------------------
+// Getters
+// -----------------------------
     public getShowtimeID(): string {
         return this.showtimeID;
     }

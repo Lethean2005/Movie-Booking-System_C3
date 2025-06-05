@@ -11,9 +11,15 @@ export class Review{
     ){
         
     }
+// -----------------------------
+// Get review
     public getReviewDetails(): string {
         return `Review ID: ${this.reviewID}, Rating: ${this.rating}, Comment: ${this.comment}, User: ${this.user.getUserName()}, Movie ID: ${this.movieID.getMovieID()}`;
     }
+
+// -----------------------------
+// update review
+// -----------------------------
     public updateReview(rating: number, comment: string): void {
         this.rating = rating;
         this.comment = comment;
