@@ -1,11 +1,14 @@
-import { Booking } from './Booking';
-import { Showtime } from './Showtime';
-import { BookingStatus } from '../enums/BookingStatus';
-import { Wallet } from './Wallet';
-import { Review } from './Review';
-import { Movie } from './Movie';
+// ------------------------------
+// imports
+// ------------------------------
+import { Booking } from "./Booking";
+import { Showtime } from "./Showtime";
+import { BookingStatus } from "../enums/BookingStatus";
+import { Wallet } from "./Wallet";
+import { Review } from "./Review";
+import { Movie } from "./Movie";
 
-const users: User[] = []; 
+const users: User[] = [];
 
 export class User {
   private bookings: Booking[] = [];
@@ -15,17 +18,17 @@ export class User {
     private fullName: string,
     private email: string,
     private password: string,
-    private wallet: Wallet,
+    private wallet: Wallet
   ) {}
 
-// -----------------------------
-// 1. User Registration/Login
-// -----------------------------  
+  // -----------------------------
+  // 1. User Registration/Login
+  // -----------------------------
   public register(): void {
-    const existingUser = users.find(user => user.email === this.email);
+    const existingUser = users.find((user) => user.email === this.email);
     if (existingUser) {
-      console.log('Registration failed: Email already exists.');
-        return;
+      console.log("Registration failed: Email already exists.");
+      return;
     }
     users.push(this);
     console.log(`${this.fullName} has registered successfully.`);
@@ -33,35 +36,35 @@ export class User {
 
   public login(): boolean {
     const user = users.find(
-      u => u.email === this.email && u.password === this.password
+      (u) => u.email === this.email && u.password === this.password
     );
     if (user) {
       console.log(`${this.fullName} has logged in successfully.`);
       return true;
     } else {
-      console.log('Login failed: Invalid email or password.');
+      console.log("Login failed: Invalid email or password.");
       return false;
     }
   }
 
-// -----------------------------
-// 2. View Booking History
-// -----------------------------
+  // -----------------------------
+  // 2. View Booking History
+  // -----------------------------
   public viewBookingHistory(): Booking[] {
     console.log(`${this.fullName}'s booking history:`);
     return this.bookings;
   }
 
-// -----------------------------
-// Add Booking
-// -----------------------------
+  // -----------------------------
+  // Add Booking
+  // -----------------------------
   public addBooking(booking: Booking): void {
     this.bookings.push(booking);
   }
 
-// -----------------------------
-// Leave Review
-// -----------------------------
+  // -----------------------------
+  // Leave Review
+  // -----------------------------
   public leaveReview(movie: Movie, rating: number, comment: string): void {
     const review = new Review(`R${Date.now()}`, rating, comment, this, movie);
     this.reviews.push(review);
