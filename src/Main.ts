@@ -112,8 +112,9 @@ console.log(`User wallet before payment: $${user1.getWallet()["balance"]}`);
 if (user1.getWallet().pay(booking.getTotalPrice())) {
     booking.confirmBooking();
     user1.addBooking(booking);
-
-    // 9. Generate Ticket
+// ----------------------
+// 9. Generate Ticket
+// ----------------------
     const ticket = new DigitalTicket('T001', selectedSeats, hall1.getHallName(), 'QR123456', 'REF123456');
     booking.setTicket(ticket);
 
@@ -123,15 +124,18 @@ if (user1.getWallet().pay(booking.getTotalPrice())) {
     console.log(`  - Hall: ${ticket.getHallName()}`);
     console.log(`  - QR: ${ticket.getQRCode()}`);
     console.log(`  - Ref: ${ticket.getBookingRef()}`);
-
-    // 10. Ticket Verification
+// ----------------------
+// 10. Ticket Verification
+// ----------------------
     const staff = new CinemaStaff('S001', 'Alice');
     console.log(staff.verifyTicket(ticket) ? '✅ Ticket verified! Enjoy your movie!' : '❌ Ticket verification failed.');
-
-    // 11. Leave Review
+// ----------------------
+// 11. Leave Review
+// ----------------------
     user1.leaveReview(movie1, 5, '🔊 Great sound and 🛋️ super comfortable seats!');
-
-    // 12. View Booking History
+// ----------------------
+// 12. View Booking History
+// ----------------------
     user1.viewBookingHistory().forEach((b, idx) => {
         const t = b.getTicket();
         console.log(`Booking #${idx + 1}`);
@@ -145,11 +149,14 @@ if (user1.getWallet().pay(booking.getTotalPrice())) {
         }
         console.log('--------------------------------------------------');
     });
-
-    // 13. Movie Reviews
+// ----------------------
+// 13. Movie Reviews
+// ----------------------
     movie1.getReviews().forEach(r => console.log(r.getReviewDetails()));
 
-    // 14. Wallet After Payment
+// ----------------------
+// 14. Wallet After Payment
+// ----------------------
     console.log(`\nUser wallet after payment: $${user1.getWallet()["balance"]}`);
 } else {
     console.log('❌ Booking/payment failed. Please top up your wallet.');
